@@ -6,10 +6,11 @@ public abstract class Veiculo {
 	public boolean disponivel;
 
 	public Veiculo(String modelo, String placa) {
-	        this.modelo = modelo;
-	        this.placa = placa;
-	        this.disponivel = true;
-	    }
+		this.modelo = modelo;
+		this.placa = placa;
+		this.disponivel = true;
+	}
+
 	public String getModelo() {
 		return modelo;
 	}
@@ -28,13 +29,12 @@ public abstract class Veiculo {
 	public void setDisponivel(boolean disponivel) {
 		this.disponivel = disponivel;
 	}
-	
 	public abstract String getTipo();
 
 	public abstract double custoLocacao(int dias);
 
 	@Override
 	public String toString() {
-		return getTipo() + ": " + modelo + " - " + placa + (disponivel ? " (Disponível)" : " (Alugado)");
+		return getTipo() + ":  " + modelo + "  -  Placa:  " + placa + (disponivel ? "  (Disponível)" : " (Alugado)");
 	}
 }
