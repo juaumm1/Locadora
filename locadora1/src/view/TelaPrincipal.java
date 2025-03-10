@@ -28,7 +28,7 @@ public class TelaPrincipal {
 	public TelaPrincipal() {
 		veiculos.add(new Carro("Fiat Marea Turbo", "OXN-1234"));
 		veiculos.add(new Moto("Honda NXR BROS 160", "AAS-5678"));
-		veiculos.add(new Caminhao("Volvo FH", "JKL-9999"));
+		veiculos.add(new Caminhao("Mercedes-Benz L16-20", "JKL-9999"));
 	}
 
 	public void iniciarInterface() {
@@ -44,8 +44,8 @@ public class TelaPrincipal {
 		JButton alugarBtn = new JButton("Alugar Selecionado");
 		JButton devolverBtn = new JButton("Devolver Selecionado");
 
-		alugarBtn.addActionListener(e -> manipularAluguel(listaVeiculos, true));
-		devolverBtn.addActionListener(e -> manipularAluguel(listaVeiculos, false));
+		alugarBtn.addActionListener(e -> locacao(listaVeiculos, true));
+		devolverBtn.addActionListener(e -> locacao(listaVeiculos, false));
 
 		JPanel panel = new JPanel();
 		panel.add(alugarBtn);
@@ -57,7 +57,7 @@ public class TelaPrincipal {
 		frame.setVisible(true);
 	}
 
-	private void manipularAluguel(JList<Veiculo> listaVeiculos, boolean alugar) {
+	private void locacao(JList<Veiculo> listaVeiculos, boolean alugar) {
 		Veiculo veiculo = listaVeiculos.getSelectedValue();
 		if (veiculo != null) {
 			if (alugar && veiculo.disponivel) {
@@ -65,7 +65,7 @@ public class TelaPrincipal {
 				String cpf = JOptionPane.showInputDialog("CPF: : ");
 				String numero = JOptionPane.showInputDialog("Telefone/Celular: ");
 				String email = JOptionPane.showInputDialog("Email: ");
-				String diasStr = JOptionPane.showInputDialog("Dias requeridos para alugar: ");
+				String diasStr = JOptionPane.showInputDialog("Dias: ");
 				try {
 					int dias = Integer.parseInt(diasStr);
 					double custo = veiculo.custoLocacao(dias);
